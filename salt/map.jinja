@@ -51,6 +51,12 @@
                 'minion-service': 'salt_minion',
                 'master-service': 'salt_master',
                 'syndic-service': 'salt_syndic'},
+    'Windows':  {'salt-master': 'salt-master',
+                'salt-minion': 'salt-minion',
+                'salt-syndic': 'salt-syndic',
+                'salt-cloud': 'salt-cloud',
+                'salt-ssh': 'salt-ssh',
+                'config-path': '\salt\conf'}
 } %}
 
 {% if grains.get('saltversion', '').startswith('0.17') %}
