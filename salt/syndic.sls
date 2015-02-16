@@ -4,7 +4,7 @@ include:
   - salt.master
 
 salt-syndic:
-  pkg.installed:
+  pkg.latest:
     - name: {{ salt['salt-syndic'] }}
   service:
     - running

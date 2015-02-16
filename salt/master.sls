@@ -1,7 +1,7 @@
 {% from "salt/map.jinja" import salt with context %}
 
 salt-master:
-  pkg.installed:
+  pkg.latest:
     - name: {{ salt['salt-master'] }}
   file.recurse:
     - name: {{ salt.get('config-path', '/etc/salt') }}/master.d

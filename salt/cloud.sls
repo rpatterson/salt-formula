@@ -3,27 +3,30 @@
 {% set cloud = salt.get('cloud', {}) -%}
 
 python-pip:
-  pkg.installed
+  pkg.latest
 
 pycrypto:
   pip.installed:
+    - upgrade: True
     - require:
       - pkg: python-pip
 
 {% if grains['os_family'] not in ['Debian', 'RedHat'] %}
 crypto:
   pip.installed:
+    - upgrade: True
     - require:
       - pkg: python-pip
 {% endif %}
 
 apache-libcloud:
   pip.installed:
+    - upgrade: True
     - require:
       - pkg: python-pip
 
 salt-cloud:
-  pkg.installed:
+  pkg.latest:
     - name: {{ salt['salt-cloud'] }}
     - require:
       - pip: apache-libcloud

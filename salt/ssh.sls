@@ -1,7 +1,7 @@
 {% from "salt/map.jinja" import salt with context %}
 
 ensure salt-ssh is installed:
-  pkg.installed:
+  pkg.latest:
     - name: {{ salt['salt-ssh'] }}
 
 ensure roster config:
